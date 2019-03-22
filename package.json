@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "express-http-proxy": "^1.5.1",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "2.1.8"
