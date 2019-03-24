@@ -11,7 +11,7 @@ type Props = {
   children: JSX.Element;
 };
 
-class RecipesContainer extends Component<Props> {
+class RecipesFetcherContainer extends Component<Props> {
   componentDidMount() {
     this.fetchRecipes();
   }
@@ -40,4 +40,4 @@ export default connect(
   {
     fetchRecipesAsync
   }
-)(RecipesContainer);
+)(RecipesFetcherContainer);

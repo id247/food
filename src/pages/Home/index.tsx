@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import qs from 'query-string';
 import RecipesFetcherContainer from '../../containers/RecipesFetcherContainer';

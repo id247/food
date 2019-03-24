@@ -6,4 +6,3 @@ export const apiRequest = async <T>(url: string): Promise<T> => {
 
   return json;
 };
-// fetch().then(response => response.json());

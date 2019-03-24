@@ -4,10 +4,10 @@ import Recipes from '../../components/Recipes';
 import { Recipe, Store } from '../../types';
 import {
   recipeIdsSelector,
-  receiptByIdSelector,
+  recipeByIdSelector,
   pagingAfterSelector,
   pagingBeforeSelector,
-  isRecipesFetchingSelector,
+  isRecipesFetchingSelector
 } from '../../selectors/recipes';
 
 export default connect(
@@ -15,7 +15,7 @@ export default connect(
     recipeIds: recipeIdsSelector(state),
     pagingAfter: pagingAfterSelector(state),
     pagingBefore: pagingBeforeSelector(state),
-    isFetching: isRecipesFetchingSelector(state),
+    isFetching: isRecipesFetchingSelector(state)
   }),
   {}
 )(Recipes);

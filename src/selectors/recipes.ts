@@ -1,9 +1,12 @@
 import { createSelector } from 'reselect';
 import { Store } from '../types';
 
-export const recipesSelector = (state: Store) => state.recipes;
+export const recipesSelector = (state: Store) => (
+  console.log(state), state.recipes
+);
 
-export const propRecipeIdSelector = (_: any, props: { recipeId: string }) => props.recipeId;
+export const propRecipeIdSelector = (_: any, props: { recipeId: string }) =>
+  props.recipeId;
 
 export const recipeItemsSelector = createSelector(
   recipesSelector,
@@ -35,7 +38,7 @@ export const pagingBeforeSelector = createSelector(
   paging => paging.before
 );
 
-export const receiptByIdSelector = createSelector(
+export const recipeByIdSelector = createSelector(
   recipeItemsSelector,
   propRecipeIdSelector,
   (recipes, id) => recipes[id]

@@ -1,3 +1,12 @@
 .layout {
   padding: 20px;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__logo {
+    font-size: 30px;
+  }
 }

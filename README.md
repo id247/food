@@ -2,6 +2,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Rename `.env.example` file to `.env` in the root of the project and add your API_TOKEN
 
-### `npm server` - to start proxy server
+### `yarn server` - to start proxy server
 
-### `npm start` - to start dev server for app
+### `yarn start` - to start dev server for app

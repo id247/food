@@ -1,11 +1,12 @@
 import {
+  adaptRecipe,
   adaptRecipes,
   adaptRecipeIds,
   adaptRecipesPaging
 } from '../adapters/recipes';
 import { Dispatch } from 'redux';
 import qs from 'query-string';
-import { Recipe, Paging, RecipeBE, PagingBE } from '../types';
+import { Recipe, Paging, RecipeBE, RecipesBE, PagingBE } from '../types';
 import { apiRequest } from '../api';
 import { QueryParams } from '../types';
 
@@ -63,7 +64,7 @@ export const fetchRecipesAsync = (queryParams: QueryParams) => async (
 
   try {
     const { data, paging } = await apiRequest<{
-      data: RecipeBE[];
+      data: RecipesBE;
       paging: PagingBE;
     }>(`/search?type=recipe&limit=12&${qs.stringify(queryParams)}`);
 
@@ -76,5 +77,69 @@ export const fetchRecipesAsync = (queryParams: QueryParams) => async (
     );
   } catch (e) {
     dispatch(fetchRecipesFail());
+  }
+};
+
+export const FETCH_RECIPE = `recipes/FETCH_RECIPE`;
+
+export type FetchRecipeAction = {
+  type: typeof FETCH_RECIPE;
+};
+
+export const fetchRecipe = (): FetchRecipeAction => ({
+  type: FETCH_RECIPE
+});
+
+export const FETCH_RECIPE_SUCCESS = `recipes/FETCH_RECIPE_SUCCESS`;
+
+export type FetchRecipeSuccessPayload = {
+  recipe: Recipe;
+};
+
+export type FetchRecipeSuccessAction = {
+  type: typeof FETCH_RECIPE_SUCCESS;
+  payload: FetchRecipeSuccessPayload;
+};
+
+export const fetchRecipeSuccess = (
+  payload: FetchRecipeSuccessPayload
+): FetchRecipeSuccessAction => ({
+  type: FETCH_RECIPE_SUCCESS,
+  payload
+});
+
+export const FETCH_RECIPE_FAIL = `recipes/FETCH_RECIPE_FAIL`;
+
+export type FetchRecipeFailAction = {
+  type: typeof FETCH_RECIPE_FAIL;
+};
+
+export const fetchRecipeFail = (): FetchRecipeFailAction => ({
+  type: FETCH_RECIPE_FAIL
+});
+
+export type RecipeActions =
+  | FetchRecipeAction
+  | FetchRecipeSuccessAction
+  | FetchRecipeFailAction;
+
+export const fetchRecipeAsync = (recipeId: string) => async (
+  dispatch: Dispatch<RecipeActions>
+) => {
+  dispatch(fetchRecipe());
+
+  try {
+    const recipe = await apiRequest<RecipeBE>(`/${recipeId}`);
+
+    console.log(recipe);
+    console.log(adaptRecipe(recipe));
+
+    dispatch(
+      fetchRecipeSuccess({
+        recipe: adaptRecipe(recipe)
+      })
+    );
+  } catch (e) {
+    dispatch(fetchRecipeFail());
   }
 };

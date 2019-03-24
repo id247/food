@@ -1,0 +1,23 @@
+@import "../../styles/media.scss";
+
+.ingredients {
+  @include media($m) {
+    columns: 2;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    &:before {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #ccc;
+    }
+  }
+}

@@ -1,8 +1,10 @@
 import {
   RecipesActions,
+  RecipeActions,
   FETCH_RECIPES,
   FETCH_RECIPES_SUCCESS,
-  FETCH_RECIPES_FAIL
+  FETCH_RECIPES_FAIL,
+  FETCH_RECIPE_SUCCESS
 } from '../actions/recipes';
 
 import { Recipe } from '../types';
@@ -28,7 +30,7 @@ const initialState: State = {
 
 const recipesReducer = (
   state: State = initialState,
-  action: RecipesActions
+  action: RecipesActions | RecipeActions
 ) => {
   switch (action.type) {
     case FETCH_RECIPES:
@@ -47,6 +49,14 @@ const recipesReducer = (
 
     case FETCH_RECIPES_FAIL:
       return { ...state, isFetching: false };
+
+    case FETCH_RECIPE_SUCCESS: {
+      const { recipe } = action.payload;
+      return {
+        ...state,
+        items: { ...state.items, [recipe.id]: recipe }
+      };
+    }
 
     default:
       return state;
