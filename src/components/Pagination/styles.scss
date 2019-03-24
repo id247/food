@@ -1,0 +1,10 @@
+@import '../../styles/media.scss';
+
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  &__item {
+    margin: 0 15px;
+  }
+}

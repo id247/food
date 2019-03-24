@@ -1,0 +1,10 @@
+$xs: 400px;
+$s: 640px;
+$m: 960px;
+$l: 1024px;
+
+@mixin media($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}

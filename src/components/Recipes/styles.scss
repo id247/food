@@ -1,0 +1,29 @@
+@import '../../styles/media.scss';
+
+.recipes {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  &--fetching {
+    opacity: 0.5;
+  }
+
+  @include media($s) {
+    margin: 0 -15px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  &__item {
+    margin-bottom: 40px;
+    max-width: 270px;
+
+    @include media($s) {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  }
+}
