@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Recipe } from '../../types';
 import './styles.scss';
 
-type Props = {
+interface Props {
   recipe?: Recipe;
 };
 

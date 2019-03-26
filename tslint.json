@@ -1,0 +1,25 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "max-line-length": [
+      true,
+      80
+    ],
+    "object-literal-sort-keys": false,
+    "jsx-no-lambda": false,
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "jsx-boolean-value": false
+  },
+  "linterOptions": {
+    "include": [
+      "src"
+    ]
+  }
+}

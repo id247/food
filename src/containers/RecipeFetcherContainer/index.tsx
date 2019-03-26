@@ -1,22 +1,20 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { connect } from 'react-redux';
-import { Recipe, Store } from '../../types';
 import { fetchRecipeAsync } from '../../actions/recipes';
-import { QueryParams } from '../../types';
 
-type Props = {
+interface Props {
   recipeId: string;
-  fetchRecipeAsync: (recipeId: string) => any;
+  fetch: (recipeId: string) => any;
   children: JSX.Element;
 };
 
 class RecipeFetcherContainer extends Component<Props> {
-  componentDidMount() {
-    const { fetchRecipeAsync, recipeId } = this.props;
-    fetchRecipeAsync(recipeId);
+  public componentDidMount() {
+    const { fetch, recipeId } = this.props;
+    fetch(recipeId);
   }
 
-  render() {
+  public render() {
     const { children } = this.props;
     return children;
   }
@@ -25,6 +23,6 @@ class RecipeFetcherContainer extends Component<Props> {
 export default connect(
   null,
   {
-    fetchRecipeAsync
+    fetch: fetchRecipeAsync
   }
 )(RecipeFetcherContainer);

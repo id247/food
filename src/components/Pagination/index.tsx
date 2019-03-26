@@ -1,11 +1,8 @@
-import React from 'react';
 import qs from 'query-string';
-import { defaultPerPage } from '../../constants/pagination';
+import React from 'react';
 import { Paging } from '../../types';
 import PaginationLink from './PaginationLink';
 import './styles.scss';
-
-type Props = Paging;
 
 const getPageLink = (params: Paging) => {
   const link = qs.stringify(params);
@@ -13,7 +10,7 @@ const getPageLink = (params: Paging) => {
   return link ? `?${link}` : '';
 };
 
-const Pagination = ({ before, after }: Props) => {
+const Pagination = ({ before, after }: Paging) => {
   return (
     <div className="pagination">
       <div className="pagination__item">

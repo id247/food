@@ -1,10 +1,9 @@
 import React from 'react';
-import { Recipe } from '../../types';
 import Loading from '../Loading';
 import Pagination from '../Pagination';
 import './styles.scss';
 
-type Props = {
+interface Props {
   recipeIds: string[];
   pagingAfter?: string;
   pagingBefore?: string;

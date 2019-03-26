@@ -3,7 +3,7 @@ import { Recipe as RecipeType } from '../../types';
 import Ingredients from '../Ingredients';
 import './styles.scss';
 
-type Props = {
+interface Props {
   recipe?: RecipeType;
 };
 

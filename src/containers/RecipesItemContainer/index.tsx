@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RecipesItem from '../../components/RecipesItem';
-import { Store } from '../../types';
 import { recipeByIdSelector } from '../../selectors/recipes';
+import { Store } from '../../types';
 
-type Props = {
+interface Props {
   recipeId: string;
 };
 

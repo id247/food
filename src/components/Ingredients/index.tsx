@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.scss';
 
-type Props = {
+interface Props {
   ingredients: string[];
 };
 

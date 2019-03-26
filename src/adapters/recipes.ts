@@ -1,5 +1,5 @@
+import { Paging, PagingBE, Recipe, RecipeBE, RecipesBE } from '../types';
 import { getThumb } from '../utils/recipe';
-import { Recipe, RecipeBE, RecipesBE, Paging, PagingBE } from '../types';
 
 export const adaptRecipe = ({
   id,

@@ -1,18 +1,16 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import RecipeFetcherContainer from '../../containers/RecipeFetcherContainer';
 import RecipeContainer from '../../containers/RecipeContainer';
-
-type Props = RouteComponentProps<{ recipeId: string }>;
+import RecipeFetcherContainer from '../../containers/RecipeFetcherContainer';
 
 const Recipe = ({
   match: {
     params: { recipeId }
   }
-}: Props) => (
-  <RecipeFetcherContainer recipeId={recipeId}>
-    <RecipeContainer recipeId={recipeId} />
-  </RecipeFetcherContainer>
-);
+}: RouteComponentProps<{ recipeId: string }>) => (
+    <RecipeFetcherContainer recipeId={recipeId}>
+      <RecipeContainer recipeId={recipeId} />
+    </RecipeFetcherContainer>
+  );
 
 export default Recipe;

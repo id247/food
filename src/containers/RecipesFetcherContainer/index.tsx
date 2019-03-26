@@ -1,35 +1,36 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { connect } from 'react-redux';
-import { Recipe, Store } from '../../types';
 import { fetchRecipesAsync } from '../../actions/recipes';
 import { QueryParams } from '../../types';
 
-type Props = {
+interface Props {
   queryParams: QueryParams;
   queryString: string;
-  fetchRecipesAsync: (queryParams: QueryParams) => any;
+  fetch: (queryParams: QueryParams) => void;
   children: JSX.Element;
 };
 
 class RecipesFetcherContainer extends Component<Props> {
-  componentDidMount() {
+  public componentDidMount() {
     this.fetchRecipes();
   }
 
-  componentDidUpdate(prevProps: Props) {
+  public componentDidUpdate(prevProps: Props) {
     const { queryString } = this.props;
     if (prevProps.queryString !== queryString) {
       this.fetchRecipes();
-      window && window.scroll(0, 0);
+      if (window) {
+        window.scroll(0, 0);
+      }
     }
   }
 
-  fetchRecipes() {
-    const { fetchRecipesAsync, queryParams } = this.props;
-    fetchRecipesAsync(queryParams);
+  public fetchRecipes() {
+    const { fetch, queryParams } = this.props;
+    fetch(queryParams);
   }
 
-  render() {
+  public render() {
     const { children } = this.props;
     return children;
   }
@@ -38,6 +39,6 @@ class RecipesFetcherContainer extends Component<Props> {
 export default connect(
   null,
   {
-    fetchRecipesAsync
+    fetch: fetchRecipesAsync
   }
 )(RecipesFetcherContainer);

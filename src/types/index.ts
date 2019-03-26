@@ -1,52 +1,52 @@
 // Maybe beter to create separate files for types
 
-export type ImageBE = {
+export interface ImageBE {
   url: string;
   responsive: {
     height: number;
     width: number;
     url: string;
   };
-};
+}
 
-export type IngredientBE = {
+export interface IngredientBE {
   text: string;
-};
+}
 
-export type RecipeBE = {
+export interface RecipeBE {
   id: string;
   name: string;
   images: ImageBE[];
   description: string;
   ingredients: IngredientBE[];
-};
+}
 
-export type RecipesBE = {
+export type RecipesBE = Array<{
   content: RecipeBE;
-}[];
+}>;
 
-export type PagingBE = {
+export interface PagingBE {
   cursors: {
     after?: string;
     before?: string;
   };
-};
+}
 
-export type Recipe = {
+export interface Recipe {
   id: string;
   name: string;
   images: string[];
   thumb: string;
   description: string;
   ingredients: string[];
-};
+}
 
-export type Paging = {
+export interface Paging {
   before?: string;
   after?: string;
-};
+}
 
-export type NormalizedEntities<T> = {
+export interface NormalizedEntities<T> {
   items: {
     [id: string]: T;
   };
@@ -56,13 +56,13 @@ export type NormalizedEntities<T> = {
     after?: string;
     before?: string;
   };
-};
+}
 
-export type Store = {
+export interface Store {
   recipes: NormalizedEntities<Recipe>;
-};
+}
 
-export type QueryParams = {
+export interface QueryParams {
   after?: string;
   before?: string;
-};
+}

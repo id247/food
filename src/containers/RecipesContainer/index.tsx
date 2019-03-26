@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Recipes from '../../components/Recipes';
-import { Recipe, Store } from '../../types';
 import {
-  recipeIdsSelector,
-  recipeByIdSelector,
+  isRecipesFetchingSelector,
   pagingAfterSelector,
   pagingBeforeSelector,
-  isRecipesFetchingSelector
+  recipeIdsSelector
 } from '../../selectors/recipes';
+import { Store } from '../../types';
 
 export default connect(
   (state: Store) => ({

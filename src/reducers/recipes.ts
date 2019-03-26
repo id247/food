@@ -1,15 +1,15 @@
 import {
-  RecipesActions,
-  RecipeActions,
+  FETCH_RECIPE_SUCCESS,
   FETCH_RECIPES,
-  FETCH_RECIPES_SUCCESS,
   FETCH_RECIPES_FAIL,
-  FETCH_RECIPE_SUCCESS
+  FETCH_RECIPES_SUCCESS,
+  RecipeActions,
+  RecipesActions
 } from '../actions/recipes';
 
 import { Recipe } from '../types';
 
-type State = {
+interface State {
   items: {
     [id: number]: Recipe;
   };
@@ -19,7 +19,7 @@ type State = {
     after?: string;
     before?: string;
   };
-};
+}
 
 const initialState: State = {
   items: {},

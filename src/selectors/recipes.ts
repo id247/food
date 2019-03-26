@@ -1,9 +1,7 @@
 import { createSelector } from 'reselect';
 import { Store } from '../types';
 
-export const recipesSelector = (state: Store) => (
-  console.log(state), state.recipes
-);
+export const recipesSelector = (state: Store) => state.recipes;
 
 export const propRecipeIdSelector = (_: any, props: { recipeId: string }) =>
   props.recipeId;
